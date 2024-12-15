@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Order Summary</h2>
+<mat-dialog-content>
+  <div class="modal-content">
+    <p><strong>Total Amount:</strong> {{ totalAmount | currency: 'PHP' }}</p>
+    <p><strong>VAT (5%):</strong> {{ vat | currency: 'PHP' }}</p>
+    <p><strong>Delivery Fee:</strong> {{ deliveryFee | currency: 'PHP' }}</p>
+
+    <p><strong>Date:</strong> {{ date }}</p>
+    <p><strong>Items:</strong></p>
+    <ul>
+      <li *ngFor="let item of selectedItems">
+        {{ item.name }} - {{ item.quantity }} x {{ item.price | currency: 'PHP' }}
+      </li>
+    </ul><br><br>
+
+    <p class="total"><strong>Grand Total:</strong> {{ grandTotal | currency: 'PHP' }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCheckout()">Checkout</button>
+  <button mat-button (click)="onClose()">Cancel</button>
+</mat-dialog-actions>

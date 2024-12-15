@@ -1,0 +1,14 @@
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be nullNo data received.Raw input data: {
+    "userId": 1,
+    "productId": 123,
+    "quantity": 2
+}
+
+Decoded data: stdClass Object
+(
+    [userId] => 1
+    [productId] => 123
+    [quantity] => 2
+)
+
+Error: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`store`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`) ON DELETE CASCADE ON UPDATE CASCADE)

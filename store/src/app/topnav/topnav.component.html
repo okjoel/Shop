@@ -1,0 +1,90 @@
+<style>
+.custom-navbar {
+  background-color: #ecc395; /* Custom background color */
+  height: 60px; /* Fixed height for the navbar */
+  display: flex;
+  align-items: center; /* Center align items vertically */
+}
+
+.custom-navbar .navbar-nav {
+  display: flex;
+  flex-grow: 1; /* Allow items to use remaining space */
+  margin-left: auto; /* Push items to the right */
+}
+
+.custom-navbar .nav-link, 
+.custom-navbar .btn {
+  color: rgb(0, 0, 0); /* Custom text color */
+  margin: 0 10px; /* Margin between items */
+  font-size: 20px; /* Font size for navbar items */
+  line-height: 60px; /* Align text vertically within the navbar */
+}
+
+.custom-navbar .navbar-toggler {
+  margin-right: 10px; /* Space on the right for the toggler */
+}
+
+.custom-navbar .logo {
+  height: 100%; /* Ensure the logo fits the navbar height */
+}
+
+.custom-navbar .navbar-collapse {
+  display: flex;
+  align-items: center; /* Center align items in the collapse area */
+}
+
+.ms-auto {
+  margin-left: auto; /* Pushes items to the end of the flex container */
+}
+
+/* Align sign-in buttons horizontally */
+.sign-in-buttons {
+  display: flex;
+  gap: 10px; /* Margin between buttons */
+  margin-top: -25px;
+}
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+  <div class="container-fluid">
+    <img src="assets/logo.png" alt="store" class="logo" style="width: 3%;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <button mat-icon-button matBadge="{{ cartItemsCount }}" matBadgeColor="warn" (click)="toggleCart()">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </li>
+        <!-- Sign In Buttons Container -->
+        <li class="nav-item ms-auto" *ngIf="!isLoggedIn">
+          <div class="sign-in-buttons">
+            <button mat-button (click)="openSignInDialog()" class="buttons">Sign In</button>
+            <button mat-button (click)="openSignInAdminDialog()" class="buttons">Sign In as Admin</button>
+          </div>
+        </li>
+        <!-- Conditional Display for Admin Actions -->
+        <li class="nav-item" *ngIf="isAdminLoggedIn">
+          <button class="btn btn-link nav-link" (click)="upload()" class="buttons">
+            <i class="fa fa-upload"></i> Upload Product
+          </button>
+        </li>
+        <li class="nav-item ms-auto" *ngIf="isLoggedIn && !isAdminLoggedIn">
+          <button mat-button (click)="logout()" class="buttons">Logout</button>
+        </li>
+        <li class="nav-item ms-auto" *ngIf="isAdminLoggedIn">
+          <button mat-button (click)="logoutAsAdmin()" class="buttons">Logout as Admin</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

@@ -1,0 +1,9 @@
+<div class="slider-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div class="slider" [style.transform]="getTransform()">
+    <div class="slide" *ngFor="let image of images">
+      <img [src]="image" alt="Product Image">
+    </div>
+  </div>
+  <button class="prev" (click)="moveSlide(-1)">&#10094;</button>
+  <button class="next" (click)="moveSlide(1)">&#10095;</button>
+</div>

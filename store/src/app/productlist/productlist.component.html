@@ -1,0 +1,10 @@
+<div class="product-list-container">
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="getImageUrl(product.photo)" alt="{{ product.name }}" class="product-image" />
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price | currency: 'PHP' }}</p>
+    <!-- Conditionally hide description using the 'hidden' class -->
+    <p [class.hidden]="isHomePage" class="description">{{ product.description }}</p>
+    <a [routerLink]="['/product', product.productid]">View Details</a>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+H1,H3{
+    font-family: oswalds;
+    text-align: center;
+    background: bisque;
+    background-color: #dbc9a0;
+    padding: 20px;
+}
+body {
+    background-color:bisque ;
+}
+
+img{
+    max-width: 20%;
+margin-bottom: 20px;
+margin-left: 38%;
+}
