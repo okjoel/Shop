@@ -11,8 +11,8 @@ html, body {
 
 body {
   background: radial-gradient(circle, 
-    #e6bf80 40%, /* Middle color */
-    #67c7ffc5 70%  /* Border color */
+    #D8D9DA 30%, /* Middle color */
+    #61677A 70%,  /* Border color */
   );
   background-size: cover;
   background-position: center;
